@@ -1,0 +1,9 @@
+region            = "us-east-2"
+environment       = "staging"
+vpc_name          = "cloudinfra-staging-vpc"
+cidr_block        = "10.20.0.0/16"
+public_subnets    = ["10.20.1.0/24", "10.20.2.0/24"]
+private_subnets   = ["10.20.10.0/24", "10.20.11.0/24"]
+enable_nat_gateway = true
+enable_vpn_gateway = true
+enable_vpc_flow_logs = true
