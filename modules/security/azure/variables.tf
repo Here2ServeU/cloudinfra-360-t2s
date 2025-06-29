@@ -1,0 +1,15 @@
+variable "nsg_name" {}
+variable "location" {}
+variable "resource_group" {}
+variable "nsg_rule_name" {}
+variable "priority" {}
+variable "direction" {}
+variable "access" {}
+variable "protocol" {}
+variable "source_port_range" {}
+variable "destination_port_range" {}
+variable "source_address_prefix" {}
+variable "destination_address_prefix" {}
+variable "keyvault_name" {}
+variable "tenant_id" {}
+variable "ddos_name" {}

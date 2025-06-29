@@ -1,10 +1,20 @@
-# Placeholder - Full implementation will follow similar structure
-output "note" {
-  value = "Azure networking module to be implemented (VNet, Subnets, NSGs, etc.)"
+resource "azurerm_virtual_network" "main" {
+  name                = var.vnet_name
+  address_space       = var.address_space
+  location            = var.location
+  resource_group_name = var.resource_group
 }
 
-# File: modules/networking/gcp/main.tf
-# Placeholder - Full implementation will follow similar structure
-output "note" {
-  value = "GCP networking module to be implemented (VPC, Subnets, Firewall, etc.)"
+resource "azurerm_subnet" "public" {
+  name                 = var.public_subnet_name
+  resource_group_name  = var.resource_group
+  virtual_network_name = azurerm_virtual_network.main.name
+  address_prefixes     = [var.public_subnet_prefix]
+}
+
+resource "azurerm_subnet" "private" {
+  name                 = var.private_subnet_name
+  resource_group_name  = var.resource_group
+  virtual_network_name = azurerm_virtual_network.main.name
+  address_prefixes     = [var.private_subnet_prefix]
 }
