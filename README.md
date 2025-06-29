@@ -80,13 +80,6 @@ task lint                         # Lint modules
 
 Future: Azure and GCP integrations will enable complete hybrid readiness and compliance for T2S's international expansion.
 
-## Contact
-To replicate or customize this infrastructure template:
-
-**Emmanuel Naweji**  
-GitHub: [Here2ServeU](https://github.com/Here2ServeU)  
-Email: [you@example.com](mailto:you@example.com)
-
 ---
 
 ## Author
