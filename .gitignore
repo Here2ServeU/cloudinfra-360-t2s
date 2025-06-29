@@ -1,0 +1,42 @@
+# Terraform & Terragrunt
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+terraform.tfvars
+terraform.tfvars.json
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terragrunt-cache/
+.plan
+
+# Taskfile artifacts (optional)
+.task/
+*.task.log
+
+# Provider-specific artifacts
+.terraform.lock.hcl
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs and temp
+*.log
+*.bak
+*.tmp
+*.backup
+
+# Secrets or credentials (if any)
+.env
+.env.*
+secrets.*
