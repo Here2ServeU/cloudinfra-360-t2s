@@ -1,0 +1,64 @@
+version: '3'
+
+vars:
+  ENV: dev
+  CLOUD: aws
+  DIR: terragrunt/{{.CLOUD}}/{{.ENV}}
+
+tasks:
+  default:
+    desc: Show available tasks
+    cmds:
+      - task --list
+
+  init:
+    desc: Run terragrunt init for selected cloud and env
+    cmds:
+      - terragrunt run-all init --terragrunt-working-dir {{.DIR}}
+
+  plan:
+    desc: Run terragrunt plan for selected cloud and env
+    cmds:
+      - terragrunt run-all plan --terragrunt-working-dir {{.DIR}}
+
+  apply:
+    desc: Run terragrunt apply for selected cloud and env
+    cmds:
+      - terragrunt run-all apply --terragrunt-working-dir {{.DIR}} --terragrunt-non-interactive
+
+  destroy:
+    desc: Destroy infra for selected cloud and env
+    cmds:
+      - terragrunt run-all destroy --terragrunt-working-dir {{.DIR}} --terragrunt-non-interactive
+
+  validate:
+    desc: Validate Terraform config
+    cmds:
+      - terragrunt run-all validate --terragrunt-working-dir {{.DIR}}
+
+  fmt:
+    desc: Format Terraform files
+    cmds:
+      - terraform fmt -recursive
+
+  lint:
+    desc: Run tflint on modules
+    cmds:
+      - tflint ./modules
+
+  show:
+    desc: Show Terraform state for selected env
+    cmds:
+      - terragrunt run-all show --terragrunt-working-dir {{.DIR}}
+
+  graph:
+    desc: Generate dependency graph (dot format)
+    cmds:
+      - terragrunt graph-dependencies --terragrunt-working-dir {{.DIR}}
+
+  clean:
+    desc: Remove .terraform folders and state backups
+    cmds:
+      - find . -type d -name ".terraform" -exec rm -rf {} +
+      - find . -name ".terraform.lock.hcl" -exec rm -f {} +
+      - find . -name "*.backup" -exec rm -f {} +
